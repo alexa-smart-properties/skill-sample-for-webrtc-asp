@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>WebRTC Client Target</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <ul>
+        <span class="label">Alexa Smart Properites</span>
+        <li><a href="https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/get-started-calling-api-for-asp.html">WebRTC Documentation</a></li>
+    </ul>
+    <div id="registration_detail">
+        <h1>Please Register</h1>
+<!-- The Provider Contact ID is the ID you associated to you Alexa Smart Properties WebRTC Contact -->
+<!-- This will be the contact you are trying recieve or place an outbound call to. -->
+        <label for="registration_id">Provider Contact ID</label>
+        <input type="text" id="registration_id" />
+        <button class="button-9" role="button" onclick="handleRegistration()">Register</button>
+        <h3>The Provider Contact ID is the ID you associated to your Alexa Smart Properties WebRTC Contact on contact creation.</h3>
+    </div>
+<!-- Send Inbound call from Alexa Service to Alexa Smart Properties device-->
+    <div id="inbound_call_detail" hidden>
+        <h2>Send Inbound Call</h2>
+            <label for="inbound_id">Alexa Smart Properites Device</label>
+            <input type="text" id="inbound_id" />
+            <button class="button-9" role="button" onclick="handleSendInboundCall()">Start Call</button>
+        <hr class="dotted">
+    </div>
+    <div id="call_detail_status" hidden>
+<!--Displaying call flow when inbound call is triggered-->
+        <h1>Call Status</h1>
+        <p id="call_status">Initial</p>
+        <hr class="dotted">
+    </div>
+<!--Displaying Call Details-->
+    <div id="call_detail" hidden>
+        <h1>Alexa Device Video</h1>
+        <video id="remote_video" autoplay></video>
+        <h1>Local Video</h1>
+        <video id="local_video" autoplay muted></video>
+        <br />
+    </div>
+<!--Displaying call button control-->
+    <div id="ringer" hidden>
+        <button id="accept_call" class="button-9" role="button" onclick="handleAccept()">Accept Call</button> 
+    </div>
+    <div id="call_detail_buttons" hidden>
+        <button id="hangup-button" class="button-9" role="button" onclick="handleLocalHangup();" disabled>Hang Up</button>
+    </div>
+</body>

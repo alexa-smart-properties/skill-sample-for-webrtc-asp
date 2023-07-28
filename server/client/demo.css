@@ -1,0 +1,127 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.label {
+  color: #f0f0f0;;
+  padding: 8px;
+  font-size: 40px;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: left;
+}
+
+input[type=text] {
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(43, 41, 41);
+  border-radius: 4px;
+}
+
+hr.dotted {
+  border-top: 3px dotted #bbb;
+}
+
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+body {background-color: rgb(212, 211, 210);}
+
+
+#call_detail { 
+  width: 920px; 
+  height: auto; 
+  margin: 0 auto;
+} 
+
+
+.clear{
+  clear: both;
+}
+
+#remote_video { 
+width: 47.5%; 
+height: 300px; 
+float: left; 
+} 
+
+#local_video { 
+width: 47.5%; 
+height: 300px; 
+float: left; 
+margin-right: 5%;
+}
+
+@media (max-width:767px) {
+#wrapper{
+    width: 100%;
+    height: auto;
+}
+#remote_video {
+    width: 100%;
+    height: auto;
+    float: none;
+}
+#local_video {
+    width: 100%;
+    height: auto;
+    float: none;
+}
+}
+
+
+.button-9 {
+appearance: button;
+backface-visibility: hidden;
+background-color: #2ab9f2;
+border-radius: 6px;
+border-width: 0;
+box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+font-size: 100%;
+height: 44px;
+line-height: 1.15;
+margin: 12px 0 0;
+outline: none;
+overflow: hidden;
+padding: 0 25px;
+position: relative;
+text-align: center;
+text-transform: none;
+transform: translateZ(0);
+transition: all .2s,box-shadow .08s ease-in;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+
+}
+
+.button-9:disabled {
+cursor: default;
+}
+
+.button-9:focus {
+box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}

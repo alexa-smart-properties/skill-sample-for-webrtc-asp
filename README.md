@@ -5,7 +5,7 @@ This Alexa sample skill is a template for a WebRTC video and audio calling with 
 
 ## Skill Architecture
 This networking skill is only the middelware solution for the Alexa Smart Properties WebRTC base calling solution.
-The voice interface is configured through the Alexa communicaiton services and not the skills interaction model. The purpose of this networking skill is to connect a developers WebRTC infrastructure with Alexa Smart Properties in a peer to peer video and audio call. 
+The voice interface is configured through the Alexa communicaiton services and not the skills interaction model. The purpose of this networking skill is to connect a developers WebRTC network infrastructure with Alexa Smart Properties. 
 
 
 ## Skill Requirements
@@ -23,7 +23,7 @@ There are a number of different ways for you to setup your skill, depending on y
  * Developers with the ASK Command Line Interface configured may follow the [ASK CLI instructions](./instructions/cli.md).
 
 
-### Setting up your skill localy
+### Setting up your skill locally
 Setup your WebRTC skill
 
 ```bash
@@ -32,7 +32,7 @@ Setup your WebRTC skill
 ```
 
 ## Getting you skill ready
-In the index.js file of the skill located in Lambda/custom, add your Alexa CLIENT_ID and CLIENT_SECRET located Alexa Skill Messaging in the permission tab of your skill in the Alexa Developer Console
+In the index.js file of the skill located in Lambda/custom, add your Alexa CLIENT_ID and CLIENT_SECRET keys. You can find these under Alexa Skill Messaging, which is located in the permission tab of your skill in the Alexa Developer Console
 
 ```js
 {
@@ -41,8 +41,8 @@ In the index.js file of the skill located in Lambda/custom, add your Alexa CLIEN
 }
 ```
 
-After deploying your severside code into the Elestic Beanstalk please the URL in the varible below in the index. js file. For more information about this, please review the server folder's [Demo WebRTC Server Instructions](./server/README.md).
-]
+After deploying your severside code located in the server folder use the URL in the varible below in the index. js file. For more information about this, please review the server folder's [Demo WebRTC Server Instructions](./server/README.md).
+
 ```js
 {
    const baseUrl = "ADD DEVELOPER WebRTC Server URL HERE";

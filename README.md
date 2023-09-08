@@ -41,7 +41,7 @@ In the index.js file of the skill located in Lambda/custom, add your Alexa CLIEN
 }
 ```
 
-After deploying your severside code located in the server folder use the URL in the varible below in the index. js file. For more information about this, please review the server folder's [Demo WebRTC Server Instructions](./server/README.md).
+After deploying your server-side code located in the server folder use the URL in the varible below in the index.js file. For more information about this, please review the server folder's [Demo WebRTC Server Instructions](./server/README.md).
 
 ```js
 {

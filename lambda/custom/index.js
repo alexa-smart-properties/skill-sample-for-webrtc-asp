@@ -1,11 +1,10 @@
-// Copyright 2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2023-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0
 // Licensed under the Amazon Software License  http://aws.amazon.com/asl/
 
-
 // Alexa Video Calling Skill Sample
 
-/* *
+/**
 This sample skill demostrates the webrtc video calling intergation with the Alexa Communcation Services API's and 
 Alexa Smart Properties. This demo skill is the base configutations for this type of calling. 
 */
@@ -17,7 +16,8 @@ const https = require('https');
 const CLIENT_ID  = 'ADD Alexa Clinet Id HERE';
 const CLIENT_SECRET = 'ADD Alexa Client Secret HERE';
 
-const baseUrl = "ADD DEVELOPER WebRTC Server URL HERE";
+// Server URL - must be HTTPS
+const baseUrl = "ADD DEVELOPER WebRTC Server HTTPS URL HERE";
 const config = {
     headers : {
         'Content-Type': 'application/json', 
@@ -120,7 +120,7 @@ const initateOutBoundCallHandler = {
     }
 };
 
-//Helper fucntion to send the SDP offer and meta data to the other WebRTC infrastructure. 
+// Helper fucntion to send the SDP offer and meta data to the other WebRTC infrastructure. 
 async function sendOutboundCallOffer(sdpOffer, sessionId, accessToken, participants){
     try {
         const requestBody = {
@@ -297,7 +297,6 @@ const endCallHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         AuthorizationGrantRequestHandler,
-        LaunchRequestHandler,
         initateOutBoundCallHandler,
         callRingingAckOutBoundCallHandler,
         callInProgressAckOutBoundCallHandler,
@@ -309,7 +308,6 @@ exports.handler = Alexa.SkillBuilders.custom()
         callUpdateResponseInboundHandler,
         callAcceptedAckInboundHandler,
         endCallHandler)
-    .addErrorHandlers(
-        ErrorHandler)
+    .addErrorHandlers()
     .withCustomUserAgent('sample/hello-world/v1.2')
     .lambda();

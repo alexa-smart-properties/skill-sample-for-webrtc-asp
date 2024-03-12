@@ -35,6 +35,15 @@ export function setAlexaId(anAlexaId) {
     alexaId = anAlexaId;
 }
 
+let alexaRegion;
+export function getAlexaRegion() {
+    return alexaRegion;
+}
+
+export function setAlexaRegion(anAlexaRegion) {
+    alexaRegion = anAlexaRegion;
+}
+
 export function setCallStatus(status) {
     console.log(`Setting call status to ${status}`);
     const element = document.getElementById("call_status");

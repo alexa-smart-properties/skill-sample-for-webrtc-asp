@@ -17,7 +17,8 @@ export function sendMessage(message) {
         sdp: message.sdp,
         id: message.id,
         target: message.target,
-        source: message.source
+        source: message.source,
+        alexaRegion: message.alexaRegion
     });
     console.log("Sending message: ", stringifiedMessage);
     ws.send(stringifiedMessage);
@@ -64,6 +65,35 @@ function handleRemoteHangup() {
     shutdownMedia();
 }
 
+function shutdownMedia() {
+    const remoteVideo = document.getElementById("remote_video");
+    const localVideo = document.getElementById("local_video");
+
+    //remoteVideo.srcObject.getTracks().forEach((track) => track.stop());
+    clearMedia(remoteVideo.srcObject);
+    //localVideo.srcObject.getTracks().forEach((track) => track.stop());
+    clearMedia(localVideo.srcObject);
+    peerConnection.close();
+    // Clear remote video
+    remoteVideo.removeAttribute("src");
+    remoteVideo.removeAttribute("srcObject");
+    remoteVideo.load();
+    // Clear local video
+    localVideo.removeAttribute("src");
+    localVideo.removeAttribute("srcObject");
+    localVideo.load();
+    document.getElementById("hangup-button").disabled = true;
+}
+
+function clearMedia(mediaSource){
+    if (mediaSource !== null && mediaSource !== undefined){
+        let mediaSourceTracks = mediaSource.getTracks();
+        if (mediaSourceTracks !== null && mediaSourceTracks !== undefined){
+            mediaSourceTracks.forEach((track) => track.stop());
+        } 
+    }
+}
+
 function handleServerError(message) {
     alert(message.message);
 }
@@ -93,7 +123,7 @@ ws.onmessage = (msg) => {
         case "pong":
             break;
         default:
-            console.error("Unhandled event type: ", message.type);
+            console.log("To be done: manage unhandled event type (if required): ", message.type);
     }
 }
 

@@ -1,3 +1,5 @@
 .DS_Store
-/lambda/custom/node_modules
-/lambda/custom/package-lock.json
+/skill/lambda/custom/node_modules
+/skill/lambda/custom/package-lock.json
+/server/node_modules
+/server/package-lock.json

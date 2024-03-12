@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getWebAppParticipantForSession, sendToWebApp } from "./webapp.js";
+import { getAlexaRegion, getWebAppParticipantForSession, sendToWebApp } from "./webapp.js";
 
 const ALEXA_REFRESH_TOKEN = "Insert Refresh Token Here";
 const ALEXA_CLIENT_ID = "Insert Client Id Here";
@@ -9,12 +9,7 @@ let accessToken;
 
 async function refreshToken() {
     console.log("Refreshing access token with LWA");
-    const body = new URLSearchParams({
-        grant_type: "refresh_token",
-        refresh_token: ALEXA_REFRESH_TOKEN,
-        client_id: ALEXA_CLIENT_ID,
-        client_secret: ALEXA_CLIENT_SECRET
-    });
+    const body = 'grant_type=refresh_token&client_id=' + ALEXA_CLIENT_ID + '&client_secret=' + ALEXA_CLIENT_SECRET + '&refresh_token=' + ALEXA_REFRESH_TOKEN;
     try {
         const response = await axios.post("https://api.amazon.com/auth/o2/token", body, 
         {
@@ -33,8 +28,19 @@ async function refreshToken() {
 }
 refreshToken();
 
-const signalingEventsURL = "https://api.amazonalexa.com/v1/communications/signaling";
+const signalingEventsURLforNA = "https://api.amazonalexa.com/v1/communications/signaling";
+const signalingEventsURLforEU = "https://api.eu.amazonalexa.com/v1/communications/signaling";
 export function sendToAlexa(message, sessionId) {
+    let signalingEventsURL;
+    switch (getAlexaRegion()) {
+        case "EU":
+            signalingEventsURL = signalingEventsURLforEU;
+            break;
+        case "NA":        
+        default:
+            signalingEventsURL = signalingEventsURLforNA;
+            break;
+    }
     axios.post(signalingEventsURL, message, 
     {
         headers: {

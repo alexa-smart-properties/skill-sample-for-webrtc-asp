@@ -1,0 +1,137 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "examplePhrases": [
+            "Alexa, open my video demo"
+          ],
+          "keywords": [],
+          "name": "WebRTC Demo",
+          "description": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        },
+        "en-GB": {
+          "summary": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "examplePhrases": [
+            "Alexa, open my video demo",
+            "",
+            ""
+          ],
+          "keywords": [],
+          "name": "WebRTC Demo",
+          "description": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "smallIconUri": "file://assets/images/en-GB_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-GB_largeIconUri.png"
+        },
+        "de-DE": {
+          "summary": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "examplePhrases": [
+            "Alexa, meine video demo",
+            "",
+            ""
+          ],
+          "keywords": [],
+          "name": "WebRTC Demo",
+          "description": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "smallIconUri": "file://assets/images/de-DE_smallIconUri.png",
+          "largeIconUri": "file://assets/images/de-DE_largeIconUri.png"
+        },
+        "fr-FR": {
+          "summary": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "examplePhrases": [
+            "Alexa, ouvre ma démo video",
+            "",
+            ""
+          ],
+          "keywords": [],
+          "name": "WebRTC Demo",
+          "description": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "smallIconUri": "file://assets/images/fr-FR_smallIconUri.png",
+          "largeIconUri": "file://assets/images/fr-FR_largeIconUri.png"
+        },
+        "it-IT": {
+          "summary": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "examplePhrases": [
+            "Alexa, apri il mio video dimostrativo",
+            "",
+            ""
+          ],
+          "keywords": [],
+          "name": "WebRTC Demo",
+          "description": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "smallIconUri": "file://assets/images/it-IT_smallIconUri.png",
+          "largeIconUri": "file://assets/images/it-IT_largeIconUri.png"
+        },
+        "es-ES": {
+          "summary": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "examplePhrases": [
+            "Alexa, abre my video prueba",
+            "",
+            ""
+          ],
+          "keywords": [],
+          "name": "WebRTC Demo",
+          "description": "Video Calling Demo using WebRTC Addon from Alexa Smart Properties",
+          "smallIconUri": "file://assets/images/es-ES_smallIconUri.png",
+          "largeIconUri": "file://assets/images/es-ES_largeIconUri.png"
+        }
+      },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "{\"ask_dist_username\":\"\",\"ask_dist_password\":\"\",\"ask_dist_testing_instructions\":\"Sample Testing Instructions.\"}",
+      "category": "COMMUNICATION",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {},
+        "interfaces": [],
+        "locales": {},
+        "regions": {
+          "EU": {
+            "endpoint": {}
+          },
+          "NA": {
+            "endpoint": {}
+          },
+          "FE": {
+            "endpoint": {}
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::persistent_unit_id::read"
+      },
+      {
+        "name": "amazon_communication::calling"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {},
+        "en-GB": {},
+        "de-DE": {},
+        "fr-FR": {},
+        "it-IT": {},
+        "es-ES": {}
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "shoppingKit": {
+        "isShoppingActionsEnabled": false,
+        "isAmazonAssociatesOnAlexaEnabled": false
+      },
+      "usesPersonalInfo": false
+    }
+  }
+}

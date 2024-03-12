@@ -4,6 +4,12 @@ import { sendToAlexa } from "./alexa.js";
 const registrations = {};
 // Maps sessionId to webApp participantId
 const webAppParticipants = {};
+// Map Alexa Region
+let alexaRegion;
+
+export function getAlexaRegion() {
+    return alexaRegion;
+}
 
 export function getWebAppParticipantForSession(sessionId) {
     return webAppParticipants[sessionId];
@@ -28,6 +34,7 @@ export function sendToWebApp(message, targetParticipant) {
 function handleRemoteRegister(message, ws) {
     console.log(`Got registration for ${message.id}`);
     registrations[message.id] = ws;
+    alexaRegion = message.alexaRegion;
 }
 
 function handleRemoteOffer(message) {

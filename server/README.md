@@ -62,8 +62,8 @@ an overloaded form of the standard [RTCSessionDescription](https://developer.moz
 
 ### Outbound call flow
 
-![Outbound Call Flow](docs/outbound.png)
+![Outbound Call Flow](https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-smart-properties/CallfromAlexaToDeveloperEndpoint.svg)
 
 ### Inbound call flow
 
-![Inbound Call Flow](docs/inbound.png)
+![Inbound Call Flow](https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-smart-properties/CallfromDeveloperEndPoint.svg)

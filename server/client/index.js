@@ -1,4 +1,4 @@
-import { getRemoteOffer, getWebId, setAlexaId, setCallStatus, setSessionId, setWebId } from "./sessionStore.js";
+import { getRemoteOffer, getWebId, getAlexaRegion, setAlexaRegion, setAlexaId, setCallStatus, setSessionId, setWebId } from "./sessionStore.js";
 import { peerConnection, startIceTimer } from "./webrtc.js";
 import { sendMessage } from "./websocketHandler.js";
 
@@ -25,8 +25,10 @@ function shutdownMedia() {
     const remoteVideo = document.getElementById("remote_video");
     const localVideo = document.getElementById("local_video");
 
-    remoteVideo.srcObject.getTracks().forEach((track) => track.stop());
-    localVideo.srcObject.getTracks().forEach((track) => track.stop());
+    //remoteVideo.srcObject.getTracks().forEach((track) => track.stop());
+    clearMedia(remoteVideo.srcObject);
+    //localVideo.srcObject.getTracks().forEach((track) => track.stop());
+    clearMedia(localVideo.srcObject);
     peerConnection.close();
     // Clear remote video
     remoteVideo.removeAttribute("src");
@@ -37,6 +39,15 @@ function shutdownMedia() {
     localVideo.removeAttribute("srcObject");
     localVideo.load();
     document.getElementById("hangup-button").disabled = true;
+}
+
+function clearMedia(mediaSource){
+    if (mediaSource !== null && mediaSource !== undefined){
+        let mediaSourceTracks = mediaSource.getTracks();
+        if (mediaSourceTracks !== null && mediaSourceTracks !== undefined){
+            mediaSourceTracks.forEach((track) => track.stop());
+        } 
+    }
 }
 
 function handleLocalHangup() {
@@ -51,9 +62,12 @@ window.handleLocalHangup = handleLocalHangup;
 function handleRegistration() {
     setWebId(document.getElementById("registration_id").value);
     console.log(`Registering user ${getWebId()}`);
+    setAlexaRegion(document.getElementById("alexa-region").value);
+    console.log(`Registering region ${getAlexaRegion()}`);
     sendMessage({
         type: "register",
-        id: getWebId()
+        id: getWebId(),
+        alexaRegion: getAlexaRegion()
     });
     
     document.getElementById("registration_detail").setAttribute("hidden", "true");

@@ -1,5 +1,5 @@
 import { getSessionId, setCallStatus, setRemoteOffer, setSessionId } from "./sessionStore.js";
-import { notifyReofferStarted, peerConnection, startIceTimer } from "./webrtc.js";
+import { notifyReofferStarted, peerConnection, startIceTimer, sendCandidates } from "./webrtc.js";
 
 let serverHost = window.location.host;
 let websocketScheme = window.location.protocol === 'https:' ? "wss" : "ws";

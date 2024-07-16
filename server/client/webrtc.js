@@ -10,7 +10,6 @@ peerConnection.ontrack = (event) => {
     remoteVideo.srcObject = event.streams[0];
     remoteVideo.load();
     document.getElementById("hangup-button").disabled = false;
-    document.getElementById("reoffer-button").disabled = false;
 }
 
 peerConnection.oniceconnectionstatechange = (event) => {
@@ -23,7 +22,7 @@ peerConnection.oniceconnectionstatechange = (event) => {
 let iceTimer = null;
 let reofferInprogress;
 let candidatesSent = false;
-function sendCandidates() {
+export function sendCandidates() {
     setCallStatus("Sending to Alexa");
     if (candidatesSent) {
         return;
@@ -43,6 +42,7 @@ function sendCandidates() {
 
 export function notifyReofferStarted() {
     reofferInprogress = true;
+    candidatesSent = false;
 }
 
 // Chrome likes to get stuck in ICE gathering, let's set a timeout so we don't

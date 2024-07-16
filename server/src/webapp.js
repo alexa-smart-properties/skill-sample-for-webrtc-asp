@@ -88,11 +88,14 @@ function handleRemoteAnswer(message) {
     }, message.sessionId);
 }
 
+// TODO: update the reneogotiation type value to be set from message argument 
+// instead of hardcoded value "CALL_UPDATE"
 function handleRemoteReoffer(message) {
     console.log("Got remote reoffer");
     sendToAlexa({
         type: "Alexa.Comms.CallSignaling.CallUpdate",
         sessionId: message.sessionId,
+        renegotiationType: "CALL_UPDATE",
         sdpDetails: {
             type: "OFFER",
             value: message.sdp
@@ -100,11 +103,14 @@ function handleRemoteReoffer(message) {
     }, message.sessionId);
 }
 
+// TODO: update the reneogotiation type value to be set from message argument 
+// instead of hardcoded value "CALL_UPDATE"
 function handleRemoteReanswer(message) {
     console.log("Got remote reanswer");
     sendToAlexa({
         type: "Alexa.Comms.CallSignaling.CallUpdateResponse",
         sessionId: message.sessionId,
+        renegotiationType: "CALL_UPDATE",
         sdpDetails: {
             type: "ANSWER",
             value: message.sdp
